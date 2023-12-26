@@ -34,9 +34,3 @@ spec:
           image: eclipse-mosquitto:2.0.18
           ports:
             - containerPort: 1883
-          env:
-            - name: MQTT_SERVICE
-              valueFrom:
-                configMapKeyRef:
-                  name: "house-automation-nodered-config-mqtt-service"
-                  key: mqtt-service

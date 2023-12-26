@@ -63,6 +63,12 @@ spec:
               mountPath: /data/flows.json
               subPath: flows.json
               readOnly: true
+          env:
+            - name: MQTT_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: "house-automation-nodered-config-mqtt-service"
+                  key: mqtt-service
       volumes:
         - name: house-automation-nodered-settings
           configMap:
