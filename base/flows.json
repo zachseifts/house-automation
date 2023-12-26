@@ -48,7 +48,7 @@
         "id": "f15d30f6ba9c582f",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "dev-house-automation-mqtt-service",
+        "broker": "$DEV_HOUSE_AUTOMATION_MQTT_SERVICE_PORT_1883_TCP_ADDR",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
