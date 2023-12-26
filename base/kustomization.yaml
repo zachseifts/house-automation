@@ -8,4 +8,4 @@ resources:
 configMapGenerator:
   - name: house-automation-nodered-config
     files:
-      - nodered-settings.js
+      - settings.js
