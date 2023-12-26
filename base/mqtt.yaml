@@ -37,7 +37,7 @@ spec:
             - containerPort: 1883
           volumeMounts:
             - name: house-automation-mosquitto-settings
-              mountPath: /etc/mosquitto.conf
+              mountPath: /mosquitto/config/mosquitto.conf
               subPath: mosquitto.conf
               readOnly: true
       volumes:
