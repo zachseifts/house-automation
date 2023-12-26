@@ -56,7 +56,7 @@ spec:
             - containerPort: 1880
           volumeMounts:
             - name: house-automation-nodered-settings
-              mountPoint: /data/settings.js
+              mountPath: /data/settings.js
               subPath: settings.js
               readOnly: true
       volumes:
