@@ -34,19 +34,9 @@ spec:
           image: eclipse-mosquitto:2.0.18
           ports:
             - containerPort: 1883
-#         volumeMounts:
-#           - name: house-automation-mqtt-settings
-#             mountPath: /data/settings.js
-#             subPath: settings.js
-#             readOnly: true
-#           - name: house-automation-mqtt-flows
-#             mountPath: /data/flows.json
-#             subPath: flows.json
-#             readOnly: true
-#     volumes:
-#       - name: house-automation-mqtt-settings
-#         configMap:
-#           name: house-automation-mqtt-config-settings
-#       - name: house-automation-mqtt-flows
-#         configMap:
-#           name: house-automation-mqtt-config-flows
+              env:
+                - name: MQTT_SERVICE
+                  valueFrom:
+                    configMapKeyRef:
+                      name: "house-automation-nodered-config-mqtt-service"
+                      key: mqtt-service

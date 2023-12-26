@@ -13,3 +13,6 @@ configMapGenerator:
   - name: house-automation-nodered-config-flows
     files:
       - flows.json
+  - name: house-automation-nodered-config-mqtt-service
+    literals:
+      - mqtt-service="dev-house-automation-mqtt-service"
