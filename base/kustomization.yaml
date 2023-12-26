@@ -5,6 +5,7 @@ metadata:
 resources:
  - namespace.yaml
  - nodered.yaml
+ - mqtt.yaml
 configMapGenerator:
   - name: house-automation-nodered-config-settings
     files:

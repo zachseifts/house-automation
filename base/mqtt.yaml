@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: house-automation-mqtt-service
+  labels:
+    component: house-automation-mqtt
+spec:
+  ports:
+  - protocol: TCP
+    port: 1883
+    targetPort: 1883
+  selector:
+    component: house-automation-mqtt
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: house-automation-mqtt-deployment
+  labels:
+    component: house-automation-mqtt
+spec:
+  selector:
+    matchLabels:
+      component: house-automation-mqtt
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: house-automation-mqtt
+    spec:
+      containers:
+        - name: house-automation-mqtt-image
+          image: eclipse-mosquitto:2.0.18
+          ports:
+            - containerPort: 1883
+#         volumeMounts:
+#           - name: house-automation-mqtt-settings
+#             mountPath: /data/settings.js
+#             subPath: settings.js
+#             readOnly: true
+#           - name: house-automation-mqtt-flows
+#             mountPath: /data/flows.json
+#             subPath: flows.json
+#             readOnly: true
+#     volumes:
+#       - name: house-automation-mqtt-settings
+#         configMap:
+#           name: house-automation-mqtt-config-settings
+#       - name: house-automation-mqtt-flows
+#         configMap:
+#           name: house-automation-mqtt-config-flows
