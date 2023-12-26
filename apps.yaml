@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata: 
+  name: house-automation
+  namespace: argocd
+spec:
+  description: An argocd app project for hosting a local house-automation instance
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: '*'
+    namespace: '*'
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/zachseifts/house-automation.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: house-automation
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/zachseifts/house-automation.git
+      revision: HEAD
+      directories:
+        - path: overlays/*
+  template:
+    metadata:
+      name: 'house-automation-{{path.basename}}'
+    spec:
+      project: house-automation
+      source:
+        repoURL: https://github.com/zachseifts/house-automation.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'house-automation-{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
