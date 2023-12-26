@@ -59,7 +59,14 @@ spec:
               mountPath: /data/settings.js
               subPath: settings.js
               readOnly: true
+            - name: house-automation-nodered-flows
+              mountPath: /data/flows.json
+              subPath: flows.json
+              readOnly: true
       volumes:
         - name: house-automation-nodered-settings
           configMap:
-            name: house-automation-nodered-config
+            name: house-automation-nodered-config-settings
+        - name: house-automation-nodered-flows
+          configMap:
+            name: house-automation-nodered-config-flows

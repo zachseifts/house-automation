@@ -6,6 +6,9 @@ resources:
  - namespace.yaml
  - nodered.yaml
 configMapGenerator:
-  - name: house-automation-nodered-config
+  - name: house-automation-nodered-config-settings
     files:
       - settings.js
+  - name: house-automation-nodered-config-flows
+    files:
+      - flows.json
