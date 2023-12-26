@@ -9,7 +9,7 @@ spec:
   - protocol: TCP
     port: 1883
     targetPort: 1883
-    nodePort: 30020
+    nodePort: 30021
   selector:
     component: house-automation-mqtt
   type: NodePort
