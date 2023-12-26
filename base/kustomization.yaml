@@ -16,3 +16,6 @@ configMapGenerator:
   - name: house-automation-nodered-config-mqtt-service
     literals:
       - mqtt-service="dev-house-automation-mqtt-service"
+  - name: house-automation-mosquitto-config-settings
+    files:
+      - mosquitto.conf
