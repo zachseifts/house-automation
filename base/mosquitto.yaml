@@ -39,7 +39,7 @@ spec:
             - name: house-automation-mosquitto-settings
               mountPath: /mosquitto/config/mosquitto.conf
               subPath: mosquitto.conf
-              readOnly: true
+              readOnly: false
       volumes:
         - name: house-automation-mosquitto-settings
           configMap:
