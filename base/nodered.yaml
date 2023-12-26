@@ -54,23 +54,23 @@ spec:
           image: nodered/node-red:2.2.3-12
           ports:
             - containerPort: 1880
-          volumeMounts:
-            - name: house-automation-nodered-storage
-              mountPath: /data
-      volumes:
-        - name: house-automation-nodered-storage
-          persistentVolumeClaim:
-            claimName: house-automation-nodered-pvc
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: house-automation-nodered-pvc
-  labels:
-    component: house-automation-nodered
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mb
+#          volumeMounts:
+#            - name: house-automation-nodered-storage
+#              mountPath: /data
+#      volumes:
+#        - name: house-automation-nodered-storage
+#          persistentVolumeClaim:
+#            claimName: house-automation-nodered-pvc
+#---
+#kind: PersistentVolumeClaim
+#apiVersion: v1
+#metadata:
+#  name: house-automation-nodered-pvc
+#  labels:
+#    component: house-automation-nodered
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 100Mb
